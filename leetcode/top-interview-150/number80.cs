@@ -71,6 +71,6 @@ public class Number80
             nums[writterPointer] = nums[i];
             curNumberCount = 1;
         }
-        return writterPointer;
+        return writterPointer+1;
     }
 }
