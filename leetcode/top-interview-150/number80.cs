@@ -2,7 +2,12 @@ namespace leetcode.top_interview_150;
 
 public class Number80
 {
-    public int Solution(int[] nums)
+    /// <summary>
+    /// O(N²) solution
+    /// </summary>
+    /// <param name="nums"></param>
+    /// <returns></returns>
+    public int Solution(int[] nums) 
     {
         int curNumber = nums[0];
         int curNumberCount = 0;
@@ -33,5 +38,39 @@ public class Number80
         }
         return validElementsCount;
     }
+    
+    /// <summary>
+    /// O(N) solution
+    /// </summary>
+    /// <param name="nums"></param>
+    /// <returns></returns>
+    public int ImprovedSolution(int[] nums) 
+    {
+        if (nums.Length == 0)
+        {
+            return 0;   
+        }
+        int curNumberCount = 1;
+        int writterPointer = 0;
 
+        for (int i = 1; i < nums.Length; i++)
+        {
+            if (nums[i] == nums[writterPointer])
+            {
+                if(curNumberCount < 2)
+                {
+                    writterPointer++;
+                    nums[writterPointer] = nums[i];
+                }
+
+                curNumberCount++;
+                continue;
+            }
+
+            writterPointer++;
+            nums[writterPointer] = nums[i];
+            curNumberCount = 1;
+        }
+        return writterPointer;
+    }
 }

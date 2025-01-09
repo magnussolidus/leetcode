@@ -8,3 +8,5 @@ int[] ploin = [0, 0, 1, 1, 1, 1, 2, 3, 3];
 Number80 problem = new Number80();
 problem.Solution(plem);
 problem.Solution(ploin);
+problem.ImprovedSolution(plem);
+problem.ImprovedSolution(ploin);
